@@ -8,7 +8,7 @@ const DOMSelectors = {
 };
 const history = [];
 
-function returnInput(input) { //no for or while iteration so not an algorithm
+function returnInput(input) { //no 'for' or 'while' iteration so this is not an algorithm
   let output;
 
   if (input == 0) {
@@ -22,22 +22,22 @@ function returnInput(input) { //no for or while iteration so not an algorithm
   return output;
 }
 
-function rockPaperScissors(input) { //algorithm
+function rockPaperScissors(input) {           //algorithm
   const random = Math.floor(Math.random() * 100);
   let opponentChoice;
   let outcome;
 
-  for (let i = 0; i <= random; i++) {
-    if (i % 3 == 0) {
+  for (let i = 0; i <= random; i++) {         //iteration
+    if (i % 3 == 0) {                         //selection
       opponentChoice = "rock";
-    } else if (i % 2 == 0) {
+    } else if (i % 2 == 0) {                  //selection
       opponentChoice = "paper";
-    } else {
+    } else {                                  //selection
       opponentChoice = "scissors";
     }
   }
 
-  if (opponentChoice == "rock") {
+  if (opponentChoice == "rock") {             //selection
     if (input == 1) {
       outcome = "win";
     } else if (input == 2) {
@@ -45,7 +45,7 @@ function rockPaperScissors(input) { //algorithm
     } else {
       outcome = "draw";
     }
-  } else if (opponentChoice == "paper") {
+  } else if (opponentChoice == "paper") {     //selection
     if (input == 2) {
       outcome = "win";
     } else if (input == 0) {
@@ -53,7 +53,7 @@ function rockPaperScissors(input) { //algorithm
     } else {
       outcome = "draw";
     }
-  } else {
+  } else {                                    //selection  
     if (input == 0) {
       outcome = "win";
     } else if (input == 1) {
@@ -65,7 +65,7 @@ function rockPaperScissors(input) { //algorithm
   history.push(outcome);
 
   DOMSelectors.history.innerHTML = "";
-  DOMSelectors.content.insertAdjacentHTML(
+  DOMSelectors.content.insertAdjacentHTML(    
     "afterbegin",
     `<div class="card" id="${outcome}">
     <p>Your choice: ${returnInput(input).toUpperCase()}</p>
@@ -76,14 +76,14 @@ function rockPaperScissors(input) { //algorithm
   );
 }
 
-function getHistory() { //algorithm
+function getHistory() {
   DOMSelectors.content.innerHTML = "";
   DOMSelectors.history.innerHTML = "";
   let win = 0;
   let lose = 0;
   let draw = 0;
 
-  for (let i = 0; i < history.length; i++) {
+  for (let i = 0; i < history.length; i++) {  
     if (history[i] == "win") {
       win++;
     } else if (history[i] == "lose") {
